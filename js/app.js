@@ -34,6 +34,11 @@ function insertInnerText(id) {
 
 }
 
+function addToggleStyle(e) {
+    e.target.classList.add("bg-lime-300");
+    e.target.classList.remove("bg-white", "border-gray-100");
+}
+
 
 
 
@@ -43,7 +48,8 @@ function insertInnerText(id) {
 
 
 
-function clickButton() {
+
+function clickButton(e) {
     const card1Count = getInnerTextValueById('span-1');
     const card2Count = getInnerTextValueById('span-2');
     const card3Count = getInnerTextValueById('span-3');
@@ -59,28 +65,58 @@ function clickButton() {
 
 
 
+
     if (newAccountBalance < 0) {
         alert('Insufficient Balance');
+
         // return;
     }
     else {
-        document.getElementById('account-balance').innerText = newAccountBalance;
-        removeInputFieldByQuerySelector('.input');
-        const newSpan1 = card1Count + inputValue1;
-        const newSpan2 = card2Count + inputValue2;
-        const newSpan3 = card3Count + inputValue3;
-        insertInnerText('span-1').innerText = newSpan1;
-        insertInnerText('span-2').innerText = newSpan2;
-        insertInnerText('span-3').innerText = newSpan3;
 
+        if (inputValue1 > 0 || inputValue2 > 0 || inputValue3 > 0) {
+            document.getElementById('account-balance').innerText = newAccountBalance;
+            removeInputFieldByQuerySelector('.input');
+            my_modal_1.showModal();
+            const newSpan1 = card1Count + inputValue1;
+            const newSpan2 = card2Count + inputValue2;
+            const newSpan3 = card3Count + inputValue3;
+            insertInnerText('span-1').innerText = newSpan1;
+            insertInnerText('span-2').innerText = newSpan2;
+            insertInnerText('span-3').innerText = newSpan3;
+            return;
 
+        }
+        else {
+            alert('Please insert a valid input! cheers!');
+            removeInputFieldByQuerySelector('.input');
+            return;
+        }
 
     }
-
-
 
 
 }
 
-// inner card eventListerner
+// toggle
+
+const donationBtn = document.getElementById('donation-btn');
+const historyBtn = document.getElementById('history-btn');
+
+// console.log(donationBtn, historyBtn);
+historyBtn.addEventListener('click', function (e) {
+    addToggleStyle(e);
+    donationBtn.classList.remove('bg-lime-300');
+
+
+
+})
+
+donationBtn.addEventListener('click', function (e) {
+    addToggleStyle(e);
+    historyBtn.classList.remove('bg-lime-300');
+
+
+})
+
+
 
