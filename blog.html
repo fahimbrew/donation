@@ -70,14 +70,18 @@
                 <input type="radio" name="my-accordion-2" checked="checked" />
                 <div class="collapse-title text-xl font-medium">What is the Document Object Model(DOM)?</div>
                 <div class="collapse-content">
-                    <p>hello</p>
+                    <p>The Document Object Model, usually referred to as the DOM, is an essential part of making
+                        websites interactive. It is an interface that allows a programming language to manipulate the
+                        content, structure, and style of a website.</p>
                 </div>
             </div>
             <div class="collapse collapse-arrow bg-white border-b-2">
                 <input type="radio" name="my-accordion-2" />
                 <div class="collapse-title text-xl font-medium">How do you select an element from the DOM?</div>
                 <div class="collapse-content">
-                    <p>hello</p>
+                    <p>There are total 5 ways to select/get any elements from DOM, and the famous one is
+                        getElementById(). Rest of them are
+                        getElementsByTagName(),getElementsByClassName(),querySelector(),querySelectorAll().</p>
                 </div>
             </div>
             <div class="collapse collapse-arrow bg-white border-b-2">
@@ -85,7 +89,9 @@
                 <div class="collapse-title text-xl font-medium">What is the event delegation in the context of DOM, and
                     why is it useful?</div>
                 <div class="collapse-content">
-                    <p>hello</p>
+                    <p>Event delegation refers to the process of using event propagation (bubbling) to handle events at
+                        a higher level in the DOM than the element on which the event originated. It allows us to attach
+                        a single event listener for elements that exist now or in the future</p>
                 </div>
             </div>
             <div class="collapse collapse-arrow bg-white border-b-2">
@@ -93,11 +99,18 @@
                 <div class="collapse-title text-xl font-medium">How do you manipulate an element's attributes and styles
                     using the DOM?</div>
                 <div class="collapse-content">
-                    <p>hello</p>
+                    <p>The classList object only provide methods to change the class of an element. If you want to
+                        change other attributes like id , href , or src , you can use the setAttribute() method. The
+                        setAttribute() method accepts two arguments: The name of the attribute to set.</p>
                 </div>
             </div>
         </div>
     </main>
+    <script>
+        document.getElementById('home').addEventListener('click', function () {
+            window.location.href = "index.html";
+        })
+    </script>
     <script src="js/app.js"></script>
 </body>
 
