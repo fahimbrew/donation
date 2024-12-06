@@ -1,5 +1,3 @@
-// console.log("Hi I am connected")
-
 // common shared function starts
 function getValueById(id) {
     const valueOfEl = Number(document.getElementById(id).value);
@@ -17,6 +15,10 @@ function getValueByClassName(classname) {
 function getInnerTextValueById(id) {
     const valueEl = document.getElementById(id).innerText;
     return Number(valueEl);
+}
+function innerText(id) {
+    return document.getElementById(id).innerText;
+
 }
 
 function removeInputFieldByQuerySelector(classname) {
@@ -45,7 +47,13 @@ function addToggleStyle(e) {
 
 // common shared function ends
 // global declaration
-
+const donationBtn = document.getElementById('donation-btn');
+const historyBtn = document.getElementById('history-btn');
+const historyDiv = document.getElementById('history-div');
+const mainContainer = document.getElementById('main');
+const header = document.getElementById('header');
+const footer = document.querySelector('footer');
+const blogBtn = document.getElementById('blog');
 
 
 
@@ -56,20 +64,14 @@ function clickButton(e) {
     const inputValue1 = getValueById('count-1');
     const inputValue2 = getValueById('count-2');
     const inputValue3 = getValueById('count-3');
-    // console.log(inputValue1, inputValue2, inputValue3)
+    const charity1 = innerText('charity-1');
+    const charity2 = innerText('charity-2');
+    const charity3 = innerText('charity-3');
     const accountBalance = getInnerTextValueById('account-balance');
-
     const inputValue = getValueByClassName('input');
-
     const newAccountBalance = accountBalance - inputValue;
-
-
-
-
     if (newAccountBalance < 0) {
         alert('Insufficient Balance');
-
-        // return;
     }
     else {
 
@@ -83,7 +85,19 @@ function clickButton(e) {
             insertInnerText('span-1').innerText = newSpan1;
             insertInnerText('span-2').innerText = newSpan2;
             insertInnerText('span-3').innerText = newSpan3;
-            return;
+            const div = document.createElement('div');
+            div.innerHTML = `
+           
+            <div class="font-light border border-gray-300 p-4 drop-shadow-sm shadow-md rounded-lg space-y-2 mt-3">
+            <p class = "text-md font-bold text-gray-950">${inputValue1} Taka is donated for ${charity1} </p>
+            <p class = "text-md font-bold text-gray-950">${inputValue2} Taka is donated for ${charity2}</p>
+            <p class = "text-md font-bold text-gray-950">${inputValue3} Taka is donated for ${charity3}</p>
+            <p class = "text-red-400">Date: ${Date()}</p>
+            </div>
+            
+            `
+            historyDiv.appendChild(div);
+
 
         }
         else {
@@ -97,25 +111,30 @@ function clickButton(e) {
 
 }
 
-// toggle
-
-const donationBtn = document.getElementById('donation-btn');
-const historyBtn = document.getElementById('history-btn');
-
-// console.log(donationBtn, historyBtn);
+//  * toggle
 historyBtn.addEventListener('click', function (e) {
     addToggleStyle(e);
     donationBtn.classList.remove('bg-lime-300');
-
-
+    historyDiv.classList.remove('hidden');
+    mainContainer.classList.add('hidden');
+    header.classList.remove('fixed');
+    footer.classList.add('hidden');
 
 })
 
 donationBtn.addEventListener('click', function (e) {
     addToggleStyle(e);
     historyBtn.classList.remove('bg-lime-300');
+    mainContainer.classList.remove('hidden');
+    historyDiv.classList.add('hidden');
+    header.classList.add('fixed');
+    footer.classList.remove('hidden');
 
+})
 
+// * window change
+blogBtn.addEventListener('click', function () {
+    console.log('I can change the window')
 })
 
 
