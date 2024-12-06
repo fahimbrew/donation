@@ -134,7 +134,11 @@ donationBtn.addEventListener('click', function (e) {
 
 // * window change
 blogBtn.addEventListener('click', function () {
-    console.log('I can change the window')
+    window.location.href = "blog.html";
+})
+
+document.getElementById('home').addEventListener('click', function () {
+    window.location.href = "index.html";
 })
 
 
