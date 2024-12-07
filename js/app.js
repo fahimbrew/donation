@@ -90,11 +90,11 @@ function clickButton(e) {
            
             <div class="font-light border border-gray-300 p-4 drop-shadow-sm shadow-md rounded-lg space-y-2 mt-3">
             <p class = "text-md font-bold text-gray-600">${inputValue1} Taka is donated for ${charity1} </p>
-            <p class ="border border-b-2 border-dotted border-gray-700"></p>
+            <p class ="border border-b-1 border-dotted border-gray-700"></p>
             <p class = "text-md font-bold text-gray-600">${inputValue2} Taka is donated for ${charity2}</p>
-            <p class ="border border-b-2 border-dotted border-gray-700"></p>
+            <p class ="border border-b-1 border-dotted border-gray-700"></p>
             <p class = "text-md font-bold text-gray-600">${inputValue3} Taka is donated for ${charity3}</p>
-            <p class ="border border-b-2 border-dotted border-gray-700"></p>
+            <p class ="border border-b-1 border-dotted border-gray-700"></p>
             <p class = "text-red-400">Date: ${Date()}</p>
             </div>
             
